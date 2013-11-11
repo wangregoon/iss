@@ -1,33 +1,40 @@
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{textcomp}
-\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}
+\usepackage[colorlinks,linkcolor=red,anchorcolor=green,citecolor=blue]{hyperref}
+\usepackage{picture}
 
+\newcommand{\D}{\mathcal{D}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\RP}{\overline{\mathbb{R}}_{+}^{n}}
+\newcommand{\BE}{\mathcal{B}_{\delta}(x_e)}
 \newcommand{\tb}[1]{\textbf{#1}}
 \newcommand{\ti}[1]{\textit{#1}}
 \newcommand{\mca}[1]{\mathcal{#1}}
 \newcommand{\map}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\rlem}[1]{Lemma.\cite{#1}}
+\newcommand{\GE}{\geqslant\geqslant}
+%\newcommand{\rsys}[1]{Sys.\cite{#1}}
 
-\newtheorem{problem}{Problem}[section] 
+\newtheorem{problem}{Problem}
 \newtheorem{thm}{Theorem}[section]
-\newtheorem{prop}{Propsition}[section] 
-\newtheorem{lem}{Lemma}[section] 
-\newtheorem{cor}{Corollary}[section] 
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Coro.}[section]
 %\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{exer}{Exercise}[section]
+\newtheorem{exer}{Exer}[section]
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section] 
+\newtheorem{defi}{Defination}[section]
 %\newtheorem{example}{Example}[section] 
 
-\newtheorem{note}{Note}[section] 
-
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}[section] 
-
+\newtheorem*{note}{Note}
+\newtheorem*{remark}{\tb{Remark}}
+\newtheorem*{claim}{\tb{Claim}}
+\newtheorem*{examp}{\tb{Example}}
 \newenvironment{solution}
                {\let\oldqedsymbol=\qedsymbol
                 \renewcommand{\qedsymbol}{$\blacktriangleleft$}

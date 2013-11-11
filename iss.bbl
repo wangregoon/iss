@@ -1,0 +1,36 @@
+\begin{thebibliography}{99}
+\bibitem{iss:1}
+Eduardo D. Sontag.
+\newblock Smooth Stabilization Implies Coprime Fractorization.
+\newblock {\em IEEE TRANSACTIONS ON AUTOMATIC CONTROL}. Vol.34, No.4, pp.435-443, 1989.
+
+\bibitem{iss:2}
+Yuandan Lin, Eduardo D. Sontag, Yuan Wang.
+\newblock A Smooth Converse Lyapunov Theorem for Robust Stability.
+\newblock {\em SIAM J. CONTROL AND OPTIMIZATION}. Vol.34, No.1, pp.124-160, 1995.
+
+\bibitem{iss:3}
+Eduardo D. Sontag.
+\newblock On the Input-to-State Stability Property.
+\newblock {\em European Journal of Control}. Vol.24, No.1, pp.24-36, 1995.
+
+\bibitem{iss:4}
+Eduardo D. Sontag, Yuan Wang.
+\newblock New Characterizations of Input-to-State Stability.
+\newblock {\em IEEE TRANSACTIONS ON AUTOMATIC CONTROL.} Vol.41 No.9, pp.1283-1294, 1996.
+
+\bibitem{iss:5}
+Mikhail Krichman, Eduardo D. Sontag, Yuan Wang.
+\newblock Input-Output-to-State Stability.
+\newblock {\em arxiv.org}, 1999.
+
+\bibitem{iss:6}
+M.Lazar, D. Mu$\tilde{n}$oz de la Pe$\tilde{n}$a, W.P.M.H. Heemels, T. Alamo.
+\newblock On input-to-state stability of min-max nonlinear model predictive control.
+\newblock {\em Systems \& Control Letter.} 57:39-48, 2008.
+
+\bibitem{iss:7}
+D. M. Raimondo, L. Magni, R. Scattolini.
+\newblock Decentralized MPC of nonlinear systems: An input-to-state stability approach.
+\newblock {\em Int. J. Robust Nonlinear Control.} 17:1651-1667, 2007.
+\end{thebibliography}
