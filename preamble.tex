@@ -4,20 +4,21 @@
 \usepackage[colorlinks,linkcolor=red,anchorcolor=green,citecolor=blue]{hyperref}
 \usepackage{picture}
 
-\newcommand{\D}{\mathcal{D}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
+% topic specific 
+\newcommand{\diff}{\text{d}}
 \newcommand{\R}[1]{\mathbb{R}^{#1}}
-\newcommand{\RP}{\overline{\mathbb{R}}_{+}^{n}}
-\newcommand{\BE}{\mathcal{B}_{\delta}(x_e)}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\KL}{\mathcal{KL}}
+\newcommand{\KI}{\mathcal{K}_\infty}
+\newcommand{\MD}{\mathcal{M}_\mathcal{D}}
 \newcommand{\tb}[1]{\textbf{#1}}
 \newcommand{\ti}[1]{\textit{#1}}
 \newcommand{\mca}[1]{\mathcal{#1}}
 \newcommand{\map}[3]{{#1}:{#2}\rightarrow{#3}}
-\newcommand{\rlem}[1]{Lemma.\cite{#1}}
-\newcommand{\GE}{\geqslant\geqslant}
-%\newcommand{\rsys}[1]{Sys.\cite{#1}}
 
+% common 
 \newtheorem{problem}{Problem}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{prop}{Proposition}[section]
@@ -32,6 +33,7 @@
 
 \theoremstyle{remark}
 \newtheorem*{note}{Note}
+\newtheorem{assume}{\tb{Assumption}}
 \newtheorem*{remark}{\tb{Remark}}
 \newtheorem*{claim}{\tb{Claim}}
 \newtheorem*{examp}{\tb{Example}}

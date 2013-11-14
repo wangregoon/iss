@@ -10,15 +10,85 @@
 \maketitle
 \begin{abstract}
 The Input-to-State Stability (ISS) property provides a natural framework in which to formulate notions
-of stability with respect to input perurbations. This works reviews ISS theory \cite{iss:1,iss:2,iss:3,iss:4} 
+of stability with respect to input perturbations. This works reviews ISS theory \cite{iss:1,iss:2,iss:3,iss:4} 
 and its application in MPC \cite{iss:5,iss:6}. 
 \end{abstract} 
 
 \tableofcontents
-\section{Intorduction}
-\subsection{notations}
-\section{Smooth Conserve Lyapunove Theorem}
+\section{Smooth Converse Lyapunove Theorem}
+Smooth converse Lyapunove theorem is the cornerstone of ISS. Most of the proofs of ISS theorems and lemmas depend 
+on this theorem or the technique to prove this theorem. Consider the following system:
+\begin{equation}\label{eq:1}
+\dot{x}(t)=f(x(t),d(t))
+\end{equation}
+where $x(t)\in\R{n}$ and $d(d)\in\D$, and where $\D$ is a compact subset of $\R{m}$. The map $\map{f}{\R{n}\times\D}
+{\R{n}}$ is assumed to satisfy the following two properties:
+\begin{itemize}
+\item $f$ is continuous.
+\item $f$ is locally Lipschitz on $x$ uniformly on d, that is, for each compact subset K there is some constant c
+s.t. $|f(x,d)-f(z,d)|\leqslant c|x-z|$.
+\end{itemize}
+Let $\MD$ be the set of all measurable functions and $d(t)\in\MD$. Let $x(t)=x(t,x_0,d)$ be the solution on some
+maximal interval $\left(T_{x_0,d}^-,T_{x_0,d}^+\right)$. The system is said to be forward complete if $T_{x_0,d}^+=+\infty$,
+backword complete if $T_{x_0,d}^-=-\infty$ and complete if it is both forward and backward complete. A closed set 
+$\A $ is an invariant set for Eq.\ref{eq:1} if
+\begin{equation*}
+\forall x_0\in\A,\forall d\in\MD,T_{x_0,d}^+=+\infty\quad \text{and}\quad x(t,x_0,d)\in\A,\quad\forall t\geqslant 0
+\end{equation*}
+Define point-to-set distance $|\xi|_\A:=\underset{\eta\in\A}{\inf}d(\xi,\eta)$.
+\begin{defi}
+Eq.\ref{eq:1} is uniformly globally asymptotically stable (UGAS) with respect to the closed invariant set $\A$ if 
+it is forward complete and the following two properties hold:
+\begin{enumerate}
+\item[(i)] \tb{Uniform stability}: $\forall\epsilon\geqslant 0,\exists \delta(\epsilon)\in\KI,\quad |x_0|_\A\leqslant
+\delta(\epsilon)\Rightarrow |x(t)|_\A<\epsilon$
+\item[(ii)] \tb{Uniform Attraction}: $\forall d\in\MD, \forall r,\epsilon>0,\exists T>0,\quad |x_0|_\A<r,t\geqslant 
+T\Rightarrow |x(t)|_\A<\epsilon$
+\end{enumerate}
+\end{defi}
+\begin{defi}
+A Lyapunov function for Eq.\ref{eq:1} with respect to a nonempty, closed, invariant set $\A$ is a function $\map{V}
+{\R{n}}{\mathcal{R}}$ s.t. V is smooth on $\R{n}\backslash\A$ and satisfies
+\begin{enumerate}
+\item[(i)] $\exists \alpha_1,\alpha_2\in\KI,\alpha_1(|\xi|_\A)\leqslant V(\xi)\leqslant\alpha_2(|\xi|_\A)$
+\item[(ii)] $\exists \alpha_3\in\K, L_{f_d}V(\xi)\leqslant-\alpha_3(|\xi|_\A)$
+\end{enumerate}
+\end{defi}
+\begin{thm}
+Assume that the Eq.\ref{eq:1} is complete. Let $\A$ be a nonempty, closed, invariant subset for this system. This system 
+is UGAS with respect to $\A$ iff there exist a smooth Lyapunov function V with respect to $\A$.
+\end{thm}
+\begin{thm}
+Let $\A$ be a nonempty, compact, invariant subset. This system is UGAS with respect to $\A$ iff there exist a smooth 
+Lyapunov function V with respect to $\A$.
+\end{thm}
 \section{ISS Theory}
+\subsection{Four Definitions of ISS}
+Four natural definitions of ISS are proposed and proved to be  equivalent.
+\begin{enumerate}
+\item[(i)] \tb{From GAS to ISS}. The GAS requires the system be complete and the following two properties hold: 1.(stability),
+the map $x_0\longmapsto x(\cdot)$ is continuous at 0; 2.(attractivity), $\lim\limits_{t\rightarrow +\infty}|x(t,x_0)|=0$. By
+analogy, the ISS requires the system be complete and the following two properties hold: 1. the map $(x_0,u)\longmapsto x(\cdot)$
+is continuous at $(0,0)$; 2. there exists a nonlinear asymptotic gain $\gamma\in\K$ s.t. $\overline{\lim}_{t\rightarrow
++\infty}|x(t,x_0,u)|\leqslant\gamma(\|u\|_\infty)$.
+\item[(ii)] \tb{From Lyapunov to Dissipation}. A Lyapunov function for the zero-input system is a storage function for which there
+exists $\alpha\in\KI$ s.t. $\nabla V(x)\cdot f_0(x)\leqslant-\alpha(|x|)$. By analogy, when nonzero inputs must be taken into
+account, it is sensible to define an ISS-Lyapunove function as a storage function for which there exist $\alpha,\theta\in\KI$ 
+s.t. $\nabla V(x)\cdot f(x,u)\leqslant\theta(|u|)-\alpha(|x|)$. Let $w(u,x)=\theta(|u|)-\alpha(|x|)$, it turns out to be a
+dissipation inequality.
+\item[(iii)] \tb{Gain Margins}. A stability margin for system is defined as any $\rho\in\KI$ with the following property: for 
+each admissible feedback law $k(t,x)\leqslant \rho(|x|)$, the closed-loop system $\dot{x}=f(x,k(t,x))$ is GAS, uniformly on k.
+\item[(iv)] \tb{Estimates}. There exist $\beta\in\KL$ and $\gamma\in\K$ s.t. $|x(t,x_0,u)|\leqslant\beta(|x_0|,t)+\gamma(\|u\|_\infty)$.
+\end{enumerate}
+\subsection{Checking the ISS}
+\begin{thm}
+Consider a storage function with the property that there exist $\alpha,\chi\in\K$ s.t. the implication 
+\begin{equation}
+|x|\geqslant\chi(|u|)\Rightarrow\nabla V(x)\cdot f(x,u)\leqslant-\alpha(|x|)
+\end{equation}
+holds for all $x,u$, then the system is ISS.
+\end{thm}
+
 \section{Application in MPC}
 
 \bibliographystyle{unsrt}
